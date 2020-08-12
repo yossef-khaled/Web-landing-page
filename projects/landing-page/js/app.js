@@ -33,13 +33,44 @@
  * 
 */
 
-// build the nav
+const navBar = document.querySelector("#navbar__list");
+const sections = document.querySelectorAll(".your-active-class");
 
+function triggerEvent(section) {
+    //console.log(section);
+    console.log(`Event just happend from ${section.getAttribute("data-nav")}`);
+}
 
-// Add class 'active' to section when near top of viewport
+for(var section of sections) {
+    // build the nav
+    var navBarElement = document.createElement('a');
+    navBarElement.className = "navBar-Element";
+    navBarElement.setAttribute("href", `#${section.id}`);
+    var navBarElementText = section.getAttribute("data-nav");
+    navBarElement.textContent = navBarElementText;
+    //console.log(section);
+    navBar.appendChild(navBarElement);
 
+    // Creating the section : "details" with child "summary" that has a child "p".
+    var sectionDetails = document.createElement("details");
+    var sectionDetailsSummary = document.createElement("summary");
+    var sectionDetailsPara = document.createElement("p");
+    var changeColorBtn = document.createElement("button");
 
-// Scroll to anchor ID using scrollTO event
+    sectionDetailsSummary.textContent = `${navBarElementText}`;
+    sectionDetailsPara.textContent = "Check the console when pressing the button";
+    changeColorBtn.textContent = "Change Color";
+    changeColorBtn.className = "change-color-button"
+
+    // Add an specific event listener for each section
+    changeColorBtn.addEventListener("click", function(){triggerEvent(this.parentNode.parentNode)})
+
+    sectionDetails.appendChild(sectionDetailsPara);
+    sectionDetails.appendChild(sectionDetailsSummary);
+    sectionDetails.appendChild(changeColorBtn);
+    section.appendChild(sectionDetails);
+}
+
 
 
 /**

@@ -60,10 +60,29 @@ section {
     min-height: 80vh;
 }
 
+.change-color-button {
+    color: #ffffff;
+    padding: 1em;
+    border-radius: 1em;   
+    background-color: #89ec06;
+    border-color: #89ec06;
+}
+
+.change-color-button:hover {
+    color: #89ec06;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
 
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+.navbar__menu {
+    padding: 2em;
+    background-color: black;
+}
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -86,6 +105,19 @@ section {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
+}
+
+.navBar-Element {
+    text-decoration: none;
+    padding: 1em 2em 1em 2em;
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    background-color: rgb(10, 24, 87);
+    border-radius: 1em;
+}
+
+.navbar-text {
+    display: inline;
 }
 
 /* Header Styles */
