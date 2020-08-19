@@ -110,7 +110,7 @@ section {
 .navBar-Element {
     text-decoration: none;
     padding: 1em 2em 1em 2em;
-    margin: 2em;
+    margin: 1em;
     color: rgb(255, 255, 255);
     background-color: rgb(10, 24, 87);
     border-radius: 1em;
@@ -253,3 +253,15 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
+@media screen and (max-width: 500px) {
+    .navBar-Element {
+        text-decoration: none;
+        padding: 0.5em 1em 0.5em 1em;
+        margin: 1em;
+        color: rgb(255, 255, 255);
+        background-color: rgb(10, 24, 87);
+        border-radius: 1em;
+        display: inline-block;
+    }
+} 
