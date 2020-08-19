@@ -38,14 +38,15 @@ const sections = document.querySelectorAll(".your-active-class");
 
 function triggerEvent(section) {
     //console.log(section);
-    console.log(`Event just happend from ${section.getAttribute("data-nav")}`);
+    console.log(`Event just happended from ${section.getAttribute("data-nav")}`);
 }
 
-for(var section of sections) {
+for(const section of sections) {
     // build the nav
-    var navBarElement = document.createElement('a');
+    var navBarElement = document.createElement('button');
     navBarElement.className = "navBar-Element";
-    navBarElement.setAttribute("href", `#${section.id}`);
+    //navBarElement.setAttribute("href", `#${section.id}`);
+    navBarElement.addEventListener('click', function(){section.scrollIntoView()});
     var navBarElementText = section.getAttribute("data-nav");
     navBarElement.textContent = navBarElementText;
     //console.log(section);
@@ -63,7 +64,7 @@ for(var section of sections) {
     changeColorBtn.className = "change-color-button"
 
     // Add an specific event listener for each section
-    changeColorBtn.addEventListener("click", function(){triggerEvent(this.parentNode.parentNode)})
+    changeColorBtn.addEventListener("click", function(){triggerEvent(section)})
 
     sectionDetails.appendChild(sectionDetailsPara);
     sectionDetails.appendChild(sectionDetailsSummary);
