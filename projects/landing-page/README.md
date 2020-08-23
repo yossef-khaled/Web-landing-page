@@ -17,3 +17,4 @@ For specific, detailed instructions, look at the project instructions in the Uda
 - Add a nav bar that includes all the sections.
 - Add four sections, each with some children.
 - Add an event listener for each button in the sections.
+- Add on scroll event listener for each section.
