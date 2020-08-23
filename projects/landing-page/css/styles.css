@@ -10,6 +10,10 @@
 
 
 /* ---- Base Rules ---- */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -118,6 +122,12 @@ section {
 
 .navbar-text {
     display: inline;
+}
+
+.active-navbar-btn {
+    color: rgb(10, 24, 87);
+    background-color: rgb(255, 255, 255);
+
 }
 
 /* Header Styles */
@@ -240,6 +250,11 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+
+.active-section {
+    background: linear-gradient(0deg, rgb(201, 193, 148) 0%, rgb(223, 217, 210) 100%);
+}
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
@@ -254,14 +269,15 @@ section.your-active-class .landing__container::after {
 	}
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
     .navBar-Element {
         text-decoration: none;
-        padding: 0.5em 1em 0.5em 1em;
+        padding: 0.25em 0.5em 0.25em 0.25em;
         margin: 1em;
         color: rgb(255, 255, 255);
         background-color: rgb(10, 24, 87);
-        border-radius: 1em;
+        border-radius: 0.4em;
         display: inline-block;
+        font-size: small;
     }
 } 
