@@ -15,5 +15,5 @@ For specific, detailed instructions, look at the project instructions in the Uda
 ## What I have done
 
 - Add a nav bar that includes all the sections.
-- Add three sections, each with some children.
+- Add four sections, each with some children.
 - Add an event listener for each button in the sections.
