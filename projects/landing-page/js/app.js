@@ -1,40 +1,5 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
 const navBar = document.querySelector("#navbar__list");
-const sections = document.querySelectorAll(".your-active-class");
+const sections = document.getElementsByTagName("section");
 
 function triggerEvent(section) {
     //console.log(section);
@@ -46,19 +11,22 @@ function highlightTheSection(section) {
     var sectionHeight = section.offsetHeight;
     const correspondingBtn = document.getElementById(`${section.getAttribute('data-nav')}`);
     correspondingBtn.addEventListener('click', function() {
+        var navbarButtons = document.getElementsByClassName('navBar-Element');
+        for(const btn of navbarButtons) {
+            btn.classList.remove('active-navbar-btn');
+        }
         correspondingBtn.classList.add('active-navbar-btn');
+        section.classList.add('your-active-class');
+        console.log(section.classList);
     })
     if(window.scrollY >= sectionPosition - sectionHeight*0.25 && window.scrollY <= sectionPosition + sectionHeight*0.25){
-        section.classList.remove('your-active-class');
-        section.classList.add('active-section');
-
+        section.classList.add('your-active-class');
         console.log(section.classList);
         console.log(`${section.getAttribute('data-nav')} is highlited now.`);
         correspondingBtn.classList.add('active-navbar-btn')
     }
     else {
-        section.classList.add('your-active-class');
-        section.classList.remove('active-section');
+        section.classList.remove('your-active-class');
         correspondingBtn.classList.remove('active-navbar-btn');
     }
 }
@@ -85,8 +53,8 @@ for(const section of sections) {
     changeColorBtn.className = "change-color-button"
     
     // Creating onScroll event for each section
-    section.addEventListener('scroll', highlightTheSection(section));
- 
+    window.onscroll = highlightTheSection(section);
+    
     // Add an specific event listener for each section
     changeColorBtn.addEventListener("click", function(){triggerEvent(section)})
 
@@ -95,19 +63,3 @@ for(const section of sections) {
     sectionDetails.appendChild(changeColorBtn);
     section.appendChild(sectionDetails);
 }
-
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
