@@ -12,8 +12,10 @@ function highlightTheSection(section) {
     const correspondingBtn = document.getElementById(`${section.getAttribute('data-nav')}`);
     correspondingBtn.addEventListener('click', function() {
         var navbarButtons = document.getElementsByClassName('navBar-Element');
-        for(const btn of navbarButtons) {
+        for(const sectionTag of sections) {
+            const btn = document.getElementById(`${sectionTag.getAttribute('data-nav')}`);
             btn.classList.remove('active-navbar-btn');
+            sectionTag.classList.remove('your-active-class');
         }
         correspondingBtn.classList.add('active-navbar-btn');
         section.classList.add('your-active-class');
@@ -52,9 +54,6 @@ for(const section of sections) {
     changeColorBtn.textContent = "Change Color";
     changeColorBtn.className = "change-color-button"
     
-    // Creating onScroll event for each section
-    window.onscroll = highlightTheSection(section);
-    
     // Add an specific event listener for each section
     changeColorBtn.addEventListener("click", function(){triggerEvent(section)})
 
@@ -63,3 +62,9 @@ for(const section of sections) {
     sectionDetails.appendChild(changeColorBtn);
     section.appendChild(sectionDetails);
 }
+
+window.addEventListener('scroll', function(e) {
+    for(const section of sections) {
+        highlightTheSection(section);
+    }
+})
