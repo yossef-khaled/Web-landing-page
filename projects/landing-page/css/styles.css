@@ -250,11 +250,6 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
-
-.active-section {
-    background: linear-gradient(0deg, rgb(201, 193, 148) 0%, rgb(223, 217, 210) 100%);
-}
-
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
